@@ -1,0 +1,15 @@
+package org.jbpm.demo.itorders;
+
+import java.lang.Number;
+import java.util.List;
+
+rule "ApprovalLsit"
+	dialect "mvel"
+	ruleflow-group "mgrapproval"
+	when
+		appl : ApproverInfo( )
+		aplist : List( )
+	then
+		aplist.add( appl );
+		System.out.println("Rule fired " + appl.getName());
+end
